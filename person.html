@@ -187,7 +187,13 @@
   <div class="container">
     <section class="FOUNDER">
       <h2>FOUNDER</h2>
-      <div class="list" id="leaderList"></div>
+      <div class="list" id="founderList"></div>
+    </section>
+
+<div class="container">
+    <section class="SUP/BY">
+      <h2>SUP/BY</h2>
+      <div class="list" id="sup/byList"></div>
     </section>
 
     <section class="MEMBER">
@@ -205,9 +211,12 @@
       .then(res => res.json())
       .then(data => {
         const leaderList = document.getElementById("leaderList");
+         const sup/byList = 
+document.getElementById("sup/byList");
         const memberList = document.getElementById("memberList");
 
-        const leaders = data.filter(p => p.permission === "leader");
+        const leaders = data.filter(p => p.permission === "Founder");
+        const sup/bys = data.filter(p => p.permission === "sup/by");
         const members = data.filter(p => p.permission === "member");
 
         function createCard(person, isLeader=false) {
@@ -223,6 +232,9 @@
         }
 
         leaders.forEach(p => leaderList.appendChild(createCard(p, true)));
+
+        sup/bys.forEach(p => sup/byList.appendChild(createCard(p)));
+
         members.forEach(p => memberList.appendChild(createCard(p)));
 
         const searchInput = document.getElementById("searchInput");
