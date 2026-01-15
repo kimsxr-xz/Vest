@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> VESTNEWGEN | VESTNEWGEN </title>
+  <title>Person List | Dekbangtlez</title>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;700&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <style>
@@ -177,7 +177,7 @@
   </style>
 </head>
 <body>
-  <header>VESTNEWGEN</header>
+  <header> VESTNEWGEN</header>
 
   <div class="search-box">
     <i class='bx bx-search'></i>
@@ -185,20 +185,13 @@
   </div>
 
   <div class="container">
-    <section class="founder">
-      <h2>FOUNDER</h2>
+    <section class="leader">
+      <h2>Leader</h2>
       <div class="list" id="leaderList"></div>
     </section>
 
-
-  <div class="container">
-    <section class="sup">
-      <h2>SUPPORT</h2>
-      <div class="list" id="supList"></div>
-    </section>
-
     <section class="member">
-      <h2>MEMBER</h2>
+      <h2>Member</h2>
       <div class="list" id="memberList"></div>
     </section>
   </div>
@@ -211,13 +204,10 @@
     fetch("person.json")
       .then(res => res.json())
       .then(data => {
-        
         const leaderList = document.getElementById("leaderList");
-        const supList = document.getElementById("supList");
         const memberList = document.getElementById("memberList");
 
         const leaders = data.filter(p => p.permission === "leader");
-        const supports = data.filter(p => p.permission === "support");
         const members = data.filter(p => p.permission === "member");
 
         function createCard(person, isLeader=false) {
@@ -233,7 +223,6 @@
         }
 
         leaders.forEach(p => leaderList.appendChild(createCard(p, true)));
-        supports.forEach(p => supportList.appendChild(createCard(p, true)));
         members.forEach(p => memberList.appendChild(createCard(p)));
 
         const searchInput = document.getElementById("searchInput");
