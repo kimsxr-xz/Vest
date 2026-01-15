@@ -186,18 +186,18 @@
 
   <div class="container">
     <section class="FOUNDER">
-      <h2>FOUNDER</h2>
-      <div class="list" id="leaderList"></div>
+      <h2>founder</h2>
+      <div class="list" id="founderList"></div>
     </section>
 
-<div class="container">
+ <div class="container">
     <section class="SUP/BY">
-      <h2>SUP/BY</h2>
+      <h2>sup/by</h2>
       <div class="list" id="sup/byList"></div>
     </section>
 
     <section class="MEMBER">
-      <h2>MEMBER</h2>
+      <h2>member</h2>
       <div class="list" id="memberList"></div>
     </section>
   </div>
@@ -210,12 +210,12 @@
     fetch("person.json")
       .then(res => res.json())
       .then(data => {
-        const leaderList = document.getElementById("leaderList");
-         const sup/byList = 
+        const founderList = document.getElementById("founderList");
+        const sup/byList = 
 document.getElementById("sup/byList");
         const memberList = document.getElementById("memberList");
 
-        const leaders = data.filter(p => p.permission === "Founder");
+        const founders = data.filter(p => p.permission === "founder");
         const sup/bys = data.filter(p => p.permission === "sup/by");
         const members = data.filter(p => p.permission === "member");
 
@@ -231,7 +231,7 @@ document.getElementById("sup/byList");
           return div;
         }
 
-        leaders.forEach(p => leaderList.appendChild(createCard(p, true)));
+        founders.forEach(p => founderrList.appendChild(createCard(p, true)));
 
         sup/bys.forEach(p => sup/byList.appendChild(createCard(p)));
 
